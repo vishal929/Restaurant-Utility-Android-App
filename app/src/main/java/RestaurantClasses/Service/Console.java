@@ -1,8 +1,12 @@
-package Service;
+package RestaurantClasses.Service;
 
 
-import ServiceTools.*;
 import java.util.ArrayList;
+import ServiceTools.Menu;
+import ServiceTools.Order;
+import ServiceTools.Complaint;
+
+
 
 /**
  * Class to represent a main console for an operating section of the restaurant. This will faciltate management with logs
