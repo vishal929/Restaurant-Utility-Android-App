@@ -1,9 +1,10 @@
-package ServiceTools;
+package RestaurantClasses.ServiceTools;
 
-import Service.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import RestaurantClasses.Service.Waiter;
 
 /**
  * This class represents an order that the waiter requests, the kitchen fulfills, and the waiter then serves.

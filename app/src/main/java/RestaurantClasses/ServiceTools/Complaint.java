@@ -1,6 +1,5 @@
-package ServiceTools;
+package RestaurantClasses.ServiceTools;
 
-import Service.*;
 
 import java.time.LocalDateTime;
 

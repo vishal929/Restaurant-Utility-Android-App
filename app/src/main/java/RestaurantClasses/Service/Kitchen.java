@@ -1,5 +1,6 @@
-package Service;
-import ServiceTools.*;
+package RestaurantClasses.Service;
+import RestaurantClasses.ServiceTools.Order;
+import RestaurantClasses.ServiceTools.Menu;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
