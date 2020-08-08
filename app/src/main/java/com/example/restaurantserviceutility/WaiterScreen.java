@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import RestaurantClasses.Service.Waiter;
+
 public class WaiterScreen extends AppCompatActivity {
 
     @Override
@@ -12,6 +14,10 @@ public class WaiterScreen extends AppCompatActivity {
         setContentView(R.layout.activity_waiter_screen);
 
         //name for the waiter should be in the bundle.
+        String name = savedInstanceState.getString("name");
+
+        //creating our object for logic
+        Waiter waiter = new Waiter(name);
 
     }
 }

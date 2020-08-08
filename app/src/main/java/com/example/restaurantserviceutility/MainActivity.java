@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 //then it will allow editing
                 //once editing is done and submitted, it will notify devices on the internet that a new up to date menu is available to download.
                 //Hopefully this download can occur in the background
+        Intent i = new Intent(this,MenuScreen.class);
+        startActivity(i);
     }
 
     //method to show a popup to enter the devices name before going to operational menu
