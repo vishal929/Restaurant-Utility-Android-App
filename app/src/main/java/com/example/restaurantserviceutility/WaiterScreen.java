@@ -11,6 +11,7 @@ public class WaiterScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiter_screen);
 
+        //name for the waiter should be in the bundle.
 
     }
 }

@@ -5,6 +5,11 @@
     <string name="waiter_text">Waiter</string>
     <string name="console_text">Console</string>
     <string name="kitchen_text">Kitchen</string>
+    <string name="name_enter_info">Please Enter a Name for this Device!</string>
+    <string name="name_enter_blank">Enter Name</string>
+    <string name="confirmText">Confirm</string>
+    <string name="goBackText">Go Back</string>
+    <string name="editMenuText">Edit Menu</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

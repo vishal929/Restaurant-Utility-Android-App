@@ -10,5 +10,7 @@ public class KitchenScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen_screen);
+
+        //name for the kitchen should be in the bundle.
     }
 }

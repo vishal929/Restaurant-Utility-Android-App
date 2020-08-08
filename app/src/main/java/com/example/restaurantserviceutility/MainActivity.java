@@ -1,6 +1,7 @@
 package com.example.restaurantserviceutility;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+
+
     }
 
 
@@ -26,24 +29,49 @@ public class MainActivity extends AppCompatActivity {
 
     //method onclick for when user selects to be a waiter
     public void goToWaiterScreen(View v){
-        Intent waiterScreen = new Intent(this,WaiterScreen.class);
 
-        startActivity(waiterScreen);
+        enterName(0);
+
+
+
     }
 
     //method onclick for when user selects to be a console
     public void goToConsoleScreen(View v){
 
+        enterName(1);
 
-        Intent consoleScreen = new Intent(this,ConsoleScreen.class);
-
-        startActivity(consoleScreen);
     }
 
     //method onclick for when user selects to be a kitchen/bar
     public void goToKitchenScreen(View v){
-        Intent kitchenScreen = new Intent(this,KitchenScreen.class);
 
-        startActivity(kitchenScreen);
+       enterName(2);
+
     }
+
+    //method to move to menu edit screen
+    public void goToMenuScreen(View v){
+        //logic to switch to menu screen
+        //idea: basically our arbitrary rule is that consoles will have the most up to date menu data
+                //so, if this device has no menu data, it will first instruct the user on these steps
+                //it will check the internet to see if there are consoles with menu data
+                //then it will check the menu data which was most recently updated and grab that
+                //then it will allow editing
+                //once editing is done and submitted, it will notify devices on the internet that a new up to date menu is available to download.
+                //Hopefully this download can occur in the background
+    }
+
+    //method to show a popup to enter the devices name before going to operational menu
+    //method returns false if there was an issue entering the name, returns true otherwise and continues
+    public void enterName(int i){
+        EnterNamePopup namePopup = EnterNamePopup.newInstance(i);
+        FragmentManager manager = getSupportFragmentManager();
+        namePopup.show(manager,"Enter Name");
+
+
+    }
+
+
+
 }
