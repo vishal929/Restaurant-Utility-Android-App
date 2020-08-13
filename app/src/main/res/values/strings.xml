@@ -11,6 +11,23 @@
     <string name="goBackText">Go Back</string>
     <string name="editMenuText">Edit Menu</string>
     <string name="menuTitleText">Menu</string>
+    <string name="orderListText">Orders</string>
+    <string name="orderItemListText">Items</string>
+    <string name="editOrderText">Edit</string>
+    <string name="pickupOrderText">Pickup</string>
+    <string name="inquiriesText">Inquiries</string>
+    <string name="kitchenNameText">Kitchen/Bar Interface:</string>
+    <string name="fulfilledOrdersText">Fulfilled Orders</string>
+    <string name="waiterScreenTitle">Waiter Interface:</string>
+    <string name="waiterPickupReadyText">Ready Pickups</string>
+    <string name="servedOrdersText">Served Orders</string>
+    <string name="placeOrderText">Place Order</string>
+    <string name="placedOrdersText">Placed Orders</string>
+    <string name="minusText">-</string>
+    <string name="plusText">+</string>
+    <string name="categoriesText">Categories</string>
+    <string name="menuItemsText">Menu Items</string>
+    <string name="viewMenuItemText">View</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

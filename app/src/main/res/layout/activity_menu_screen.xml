@@ -10,7 +10,129 @@
         android:id="@+id/menuTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="36dp"
         android:text="@string/menuTitleText"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="47dp" />
+        app:layout_constraintEnd_toStartOf="@+id/itemsTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/goBackText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="11dp"
+        android:clickable="true"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/menuItemList"
+        app:layout_constraintEnd_toStartOf="@+id/menuItemList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/menuItemList" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menuItemList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="73dp"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/categoriesList"
+        app:layout_constraintTop_toBottomOf="@+id/menuTitleText" />
+
+    <TextView
+        android:id="@+id/categoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/categoriesText"
+        app:layout_constraintStart_toStartOf="@+id/backButton"
+        app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+    <TextView
+        android:id="@+id/itemsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/menuItemsText"
+        app:layout_constraintBottom_toTopOf="@+id/menuItemList"
+        app:layout_constraintEnd_toEndOf="@+id/menuItemList"
+        app:layout_constraintStart_toStartOf="@+id/menuItemList" />
+
+    <Button
+        android:id="@+id/addCategoryButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="5dp"
+        android:onClick="addCategory"
+        android:text="@string/plusText"
+        app:layout_constraintBottom_toBottomOf="@+id/addMenuItemButton"
+        app:layout_constraintEnd_toStartOf="@+id/removeCategoryButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/deleteMenuItem" />
+
+    <Button
+        android:id="@+id/removeCategoryButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="45dp"
+        android:onClick="removeCategory"
+        android:text="@string/minusText"
+        app:layout_constraintBottom_toBottomOf="@+id/addCategoryButton"
+        app:layout_constraintEnd_toStartOf="@+id/addMenuItemButton"
+        app:layout_constraintStart_toEndOf="@+id/addCategoryButton"
+        app:layout_constraintTop_toTopOf="@+id/addCategoryButton" />
+
+    <Button
+        android:id="@+id/addMenuItemButton"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:text="@string/plusText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/deleteMenuItem"
+        app:layout_constraintEnd_toStartOf="@+id/deleteMenuItem"
+        app:layout_constraintStart_toEndOf="@+id/removeCategoryButton" />
+
+    <Button
+        android:id="@+id/deleteMenuItem"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="11dp"
+        android:text="@string/minusText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewItemButton"
+        app:layout_constraintStart_toEndOf="@+id/addMenuItemButton"
+        app:layout_constraintTop_toBottomOf="@+id/menuItemList" />
+
+    <Button
+        android:id="@+id/viewItemButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/viewMenuItemText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deleteMenuItem"
+        app:layout_constraintTop_toBottomOf="@+id/menuItemList" />
 </androidx.constraintlayout.widget.ConstraintLayout>
