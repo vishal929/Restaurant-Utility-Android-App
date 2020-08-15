@@ -1,6 +1,7 @@
 package com.example.restaurantserviceutility;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +22,7 @@ import java.util.List;
 import RestaurantClasses.ServiceTools.Menu;
 import RestaurantClasses.ServiceTools.MenuCategory;
 
-public class MenuScreen extends AppCompatActivity {
+public class MenuScreen extends AppCompatActivity implements NamePriceInputPopup.onConfirm{
 
     private RecyclerView categoriesList;
     private RecyclerView itemList;
@@ -103,6 +105,7 @@ public class MenuScreen extends AppCompatActivity {
                 //then we need to reset the MenuItem recyclerview
                 itemList.setAdapter(null);
             }
+
         } else {
             //then the list is empty
             new AlertDialog.Builder(this)
@@ -153,5 +156,74 @@ public class MenuScreen extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
+
+    public void removeItem(View v){
+        MyRecyclerAdapter adapter = (MyRecyclerAdapter) itemList.getAdapter();
+        if (adapter.remove()){
+            //then the item was successfully removed
+            if (adapter.getItemCount()==0){
+                //then we need to reset the MenuItem recyclerview
+                itemList.setAdapter(null);
+            }
+        } else {
+            //then the list is empty
+            new AlertDialog.Builder(this)
+                    .setTitle("ERROR!")
+                    .setMessage("No Items to Delete!")
+                    .setPositiveButton("OK",(dialog,id)->{})
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+    }
+
+    public void addItem(View v){
+        //if there are no categories, we must show an error
+
+        MyRecyclerAdapter adapt = (MyRecyclerAdapter) categoriesList.getAdapter();
+        if (adapt.getItemCount()==0){
+            //then we show an error
+            new AlertDialog.Builder(this)
+                    .setTitle("ERROR!")
+                    .setMessage("First Add a Category!")
+                    .setPositiveButton("OK",(dialog,id)->{})
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        } else {
+            NamePriceInputPopup enterNamePrice = NamePriceInputPopup.newInstance();
+            FragmentManager frag = getSupportFragmentManager();
+            enterNamePrice.show(frag,"Enter Name and Price");
+        }
+
+
+    }
+
+    //returning from namePrice input
+    @Override
+    public void returnData(String name, double price) {
+        //if the item name exists, we throw an error
+        //otherwise we are good to add to the list
+        MyRecyclerAdapter adapt = (MyRecyclerAdapter) categoriesList.getAdapter();
+        MenuCategory cat = (MenuCategory) adapt.get().get(adapt.getSelectedPosition());
+        if (!cat.addItem(name,price)){
+            //then the add wasnt successful and we need to show an error to the user
+            new AlertDialog.Builder(this)
+                    .setTitle("ERROR!")
+                    .setMessage("Item Already Exists!")
+                    .setPositiveButton("OK",(dialog,id)->{})
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+        }
+        adapt.select(adapt.getSelectedPosition());
+        MyRecyclerAdapter itemAdapt = (MyRecyclerAdapter) itemList.getAdapter();
+        itemAdapt.select(itemAdapt.getItemCount()-1);
+
+    }
+
+
+    //logic to go to view item screen
+    public void viewItem(View v){
+        Intent goToItem = new Intent();
     }
 }

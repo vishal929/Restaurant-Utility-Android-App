@@ -132,7 +132,13 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
             notifyItemRemoved(selectedPosition);
             notifyItemRangeChanged(selectedPosition,e.size());
             if (e.size()>0){
-               clickable.onItemSelected(selectedPosition);
+                if (selectedPosition>(e.size()-1)){
+                    //then i should select the end
+                    select(e.size()-1);
+                } else {
+                    select(selectedPosition);
+                }
+
             }
             return true;
         }
@@ -144,4 +150,16 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         notifyDataSetChanged();
         clickable.onItemSelected(pos);
     }
+
+    public int getSelectedPosition(){
+        return selectedPosition;
+    }
+
+    //getting logic
+    public List get(){
+       //gets the list
+        return e;
+    }
+
+
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NamePriceInputPopup">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/namePriceInputTitle"
+            android:layout_width="0dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/namePriceInputTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/nameDoubleInputText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ems="10"
+            android:hint="@string/name_enter_blank"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/namePriceInputTitle" />
+
+        <EditText
+            android:id="@+id/priceEnterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:ems="10"
+            android:hint="@string/sampleDecimalText"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="@+id/nameDoubleInputText"
+            app:layout_constraintTop_toBottomOf="@+id/nameDoubleInputText" />
+
+        <Button
+            android:id="@+id/cancelDoubleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel"
+            app:layout_constraintBaseline_toBaselineOf="@+id/confirmDoubleButton"
+            app:layout_constraintStart_toStartOf="@+id/priceEnterText" />
+
+        <Button
+            android:id="@+id/confirmDoubleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:text="@string/confirmText"
+            app:layout_constraintEnd_toEndOf="@+id/priceEnterText"
+            app:layout_constraintTop_toBottomOf="@+id/priceEnterText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

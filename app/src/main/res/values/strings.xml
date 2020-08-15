@@ -28,6 +28,9 @@
     <string name="categoriesText">Categories</string>
     <string name="menuItemsText">Menu Items</string>
     <string name="viewMenuItemText">View</string>
+    <string name="namePriceInputTitle">Please Input First the Name, Then the Price.</string>
+    <string name="sampleDecimalText">0.00</string>
+    <string name="enterDescriptionText">Enter Description Here</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
