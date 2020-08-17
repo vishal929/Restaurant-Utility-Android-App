@@ -1,6 +1,7 @@
 package RestaurantClasses.ServiceTools;
 
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * This class represents an item entry under a category in our Menu class.
  */
-public class MenuItem{
+public class MenuItem implements Serializable {
     /**
      * Each MenuItem has a name.
      */
@@ -67,6 +68,26 @@ public class MenuItem{
         return name;
     }
 
+    public boolean hasVariant(String name){
+        name=name.toLowerCase().trim();
+       for (String var:variants){
+           if (var.equals(name)){
+               return true;
+           }
+       }
+       return false;
+    }
+
+    public boolean hasAddition(String name){
+        name=name.toLowerCase().trim();
+        for (String add:additions){
+            if (add.equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean addVariant(String name, double price){
         name=name.toLowerCase().trim();
         for (String var:variants){
@@ -80,9 +101,19 @@ public class MenuItem{
     }
 
     public boolean removeVariant(int pos){
-        variants.remove(pos);
-        variantPrices.remove(pos);
-        return true;
+        if (variants.get(pos).equals("Base")){
+            return false;
+        } else {
+            variants.remove(pos);
+            variantPrices.remove(pos);
+            return true;
+        }
+
+    }
+
+    public void setBasePrice(double price){
+        variantPrices.remove(0);
+        variantPrices.add(0,price);
     }
 
     public boolean addAdditional(String name, double price){
@@ -102,6 +133,53 @@ public class MenuItem{
         additionPrices.remove(pos);
         return true;
     }
+
+    //for editing variants and additions
+    public boolean editVariant(int pos, String name, double price){
+        name=name.toLowerCase().trim();
+        //we should check if the variant we are editing has the same name as the name we are switching it to (purely price change)
+        if (variants.get(pos).equals(name)){
+            //then we can switch the prices no problem
+            variantPrices.remove(pos);
+            variantPrices.add(pos,price);
+            return true;
+        } else {
+            //then I should check if the new name would be valid
+            if (hasVariant(name)){
+               //then the new name is not valid
+                return false;
+            } else{
+               //then we are good
+                variants.set(pos,name);
+                variantPrices.set(pos,price);
+                return true;
+            }
+        }
+    }
+
+    public boolean editAddition(int pos, String name, double price){
+        //same exact logic as the above
+        name=name.toLowerCase().trim();
+        //we should check if the addition we are editing has the same name as the name we are switching it to (purely price change)
+        if (additions.get(pos).equals(name)){
+            //then we can switch the prices no problem
+            additionPrices.remove(pos);
+            additionPrices.add(pos,price);
+            return true;
+        } else {
+            //then I should check if the new name would be valid
+            if (hasAddition(name)){
+                //then the new name is not valid
+                return false;
+            } else{
+                //then we are good
+                additions.set(pos,name);
+                additionPrices.set(pos,price);
+                return true;
+            }
+        }
+    }
+
 
     //getters and setters
 

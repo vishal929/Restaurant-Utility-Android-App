@@ -1,9 +1,10 @@
 package RestaurantClasses.ServiceTools;
 
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Complaint{
+public class Complaint implements Serializable {
     /**
      * Each complaint has an issue.
      */

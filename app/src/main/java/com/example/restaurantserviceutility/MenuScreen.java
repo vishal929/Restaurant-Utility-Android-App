@@ -21,6 +21,7 @@ import java.util.List;
 
 import RestaurantClasses.ServiceTools.Menu;
 import RestaurantClasses.ServiceTools.MenuCategory;
+import RestaurantClasses.ServiceTools.MenuItem;
 
 public class MenuScreen extends AppCompatActivity implements NamePriceInputPopup.onConfirm{
 
@@ -50,13 +51,15 @@ public class MenuScreen extends AppCompatActivity implements NamePriceInputPopup
         menu = new Menu();
 
         //we will add some categories and items to test
-        System.out.println(menu.addCategory("Appetizers"));
+        menu.addCategory("Appetizers");
         menu.getMenu().get(0).addItem("sandwich",20.0);
-        System.out.println(menu.addCategory("Beverages"));
+        menu.getMenu().get(0).getItems().get(0).addVariant("grilled sandwich",30);
+        menu.getMenu().get(0).getItems().get(0).addAdditional("extra cheese",2);
+        menu.addCategory("Beverages");
         menu.getMenu().get(1).addItem("Coke",1.30);
-        System.out.println(menu.addCategory("Dessert"));
+        menu.addCategory("Dessert");
         menu.getMenu().get(2).addItem("Cake",5.25);
-        System.out.println(menu.addCategory("Fresh from The Grill"));
+        menu.addCategory("Fresh from The Grill");
         menu.getMenu().get(3).addItem("Grilled Paneer",5);
 
         //setting up our recyclerviews for the categories and associated items
@@ -224,6 +227,27 @@ public class MenuScreen extends AppCompatActivity implements NamePriceInputPopup
 
     //logic to go to view item screen
     public void viewItem(View v){
-        Intent goToItem = new Intent();
+        //will need to bundle the currently selected menuItem
+        MyRecyclerAdapter catadapt = (MyRecyclerAdapter) categoriesList.getAdapter();
+        MyRecyclerAdapter itadapt = (MyRecyclerAdapter) itemList.getAdapter();
+        MenuItem selected = menu.getMenu()
+                .get(catadapt.getSelectedPosition())
+                .getItems()
+                .get(itadapt.getSelectedPosition());
+
+        Intent goToItem = new Intent(this,MenuItemScreen.class);
+        //sending menu over
+        goToItem.putExtra("menu",menu);
+        //sending category info over
+        goToItem.putExtra("catPos",catadapt.getSelectedPosition());
+        //sending item info over
+        goToItem.putExtra("itemPos",itadapt.getSelectedPosition());
+        startActivity(goToItem);
+    }
+
+    //method to go back (we have to make sure to save this menu and notify users connected to the console that the menu has been altered)
+    public void goBack(View v){
+       Intent goBack = new Intent(this,MainActivity.class);
+       startActivity(goBack);
     }
 }

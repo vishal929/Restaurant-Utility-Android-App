@@ -1,6 +1,7 @@
 package RestaurantClasses.ServiceTools;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Class that represents our menu in the restaurant.
  */
-public class Menu{
+public class Menu implements Serializable {
 
 
     /**

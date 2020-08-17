@@ -6,27 +6,223 @@
     android:layout_height="match_parent"
     tools:context=".MenuItemScreen">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="238dp"
-        android:layout_height="243dp"
-        app:srcCompat="@android:drawable/ic_menu_camera"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="58dp" />
+    <Button
+        android:id="@+id/editAdditionButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="6dp"
+        android:onClick="editAddition"
+        android:text="@string/editText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/removeAdditionText"
+        app:layout_constraintTop_toBottomOf="@+id/additionsList" />
 
-    <TextView
-        android:id="@+id/menuItemText"
+    <ImageButton
+        android:id="@+id/previousItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="21dp" />
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="23dp"
+        android:onClick="previousItem"
+        app:layout_constraintEnd_toStartOf="@+id/menuItemDescriptionText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/menuItemDescriptionText"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="212dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuItemDescriptionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemMenuBackButton"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <TextView
-        android:id="@+id/menuItemDescriptionText"
-        android:layout_width="244dp"
-        android:layout_height="132dp"
+        android:id="@+id/categoryItemText"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="13dp"
+        android:gravity="center"
         android:text="TextView"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="328dp" />
+        app:layout_constraintBottom_toTopOf="@+id/itemNameTitle"
+        app:layout_constraintEnd_toStartOf="@+id/uploadImageButton"
+        app:layout_constraintStart_toEndOf="@+id/itemMenuBackButton"
+        app:layout_constraintTop_toTopOf="@+id/uploadImageButton" />
+
+    <EditText
+        android:id="@+id/menuItemDescriptionText"
+        android:layout_width="0dp"
+        android:layout_height="83dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="11dp"
+        android:editable="true"
+        android:hint="@string/enterDescriptionText"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nextItemButton"
+        app:layout_constraintEnd_toStartOf="@+id/nextItemButton"
+        app:layout_constraintStart_toEndOf="@+id/previousItemButton" />
+
+    <Button
+        android:id="@+id/itemMenuBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="26dp"
+        android:text="@string/goBackText"
+        app:layout_constraintEnd_toStartOf="@+id/categoryItemText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/variationsList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/addVariationButton"
+        app:layout_constraintEnd_toStartOf="@+id/additionsList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/variationsTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/additionsList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="67dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/variationsList"
+        app:layout_constraintTop_toBottomOf="@+id/nextItemButton" />
+
+    <TextView
+        android:id="@+id/variationsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/variationsText"
+        app:layout_constraintStart_toStartOf="@+id/variationsList"
+        app:layout_constraintTop_toBottomOf="@+id/previousItemButton" />
+
+    <TextView
+        android:id="@+id/additionsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/additionsText"
+        app:layout_constraintBottom_toTopOf="@+id/additionsList"
+        app:layout_constraintEnd_toEndOf="@+id/additionsList"
+        app:layout_constraintStart_toStartOf="@+id/additionsList" />
+
+    <Button
+        android:id="@+id/addVariationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/plusText"
+        app:layout_constraintBottom_toBottomOf="@+id/removeVariationText"
+        app:layout_constraintEnd_toStartOf="@+id/removeVariationText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/removeVariationText" />
+
+    <Button
+        android:id="@+id/removeVariationText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="7dp"
+        android:text="@string/minusText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editVariationButton"
+        app:layout_constraintStart_toEndOf="@+id/addVariationButton"
+        app:layout_constraintTop_toBottomOf="@+id/additionsList" />
+
+    <Button
+        android:id="@+id/addItemText"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="2dp"
+        android:text="@string/plusText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/removeAdditionText"
+        app:layout_constraintEnd_toStartOf="@+id/removeAdditionText"
+        app:layout_constraintStart_toEndOf="@+id/editVariationButton" />
+
+    <Button
+        android:id="@+id/removeAdditionText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/minusText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editAdditionButton"
+        app:layout_constraintStart_toEndOf="@+id/addItemText"
+        app:layout_constraintTop_toTopOf="@+id/editAdditionButton" />
+
+    <ImageButton
+        android:id="@+id/nextItemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="307dp"
+        android:layout_marginEnd="12dp"
+        android:onClick="nextItem"
+        android:scaleX="-1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/menuItemDescriptionText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <Button
+        android:id="@+id/uploadImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="13dp"
+        android:text="@string/uploadText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/categoryItemText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/editVariationButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="26dp"
+        android:onClick="editVariation"
+        android:text="@string/editText"
+        app:layout_constraintBottom_toBottomOf="@+id/addItemText"
+        app:layout_constraintEnd_toStartOf="@+id/addItemText"
+        app:layout_constraintStart_toEndOf="@+id/removeVariationText"
+        app:layout_constraintTop_toTopOf="@+id/addItemText" />
+
+    <TextView
+        android:id="@+id/itemNameTitle"
+        android:layout_width="203dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="9dp"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImageButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

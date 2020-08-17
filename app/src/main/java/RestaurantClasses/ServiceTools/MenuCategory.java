@@ -1,11 +1,12 @@
 package RestaurantClasses.ServiceTools;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Class to symbolize a category in a menu
  */
-public class MenuCategory {
+public class MenuCategory implements Serializable {
 
     /**
      * A category has a name.

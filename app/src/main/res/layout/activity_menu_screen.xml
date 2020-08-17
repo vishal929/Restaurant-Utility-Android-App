@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="26dp"
+        android:onClick="goBack"
         android:text="@string/goBackText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -132,6 +133,7 @@
         android:layout_marginTop="13dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
+        android:onClick="viewItem"
         android:text="@string/viewMenuItemText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

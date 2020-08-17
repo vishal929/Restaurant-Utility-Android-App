@@ -1,6 +1,7 @@
 package RestaurantClasses.ServiceTools;
 
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ import RestaurantClasses.Service.Waiter;
 /**
  * This class represents an order that the waiter requests, the kitchen fulfills, and the waiter then serves.
  */
-public class Order{
+public class Order implements Serializable {
 
     /**
      * Each order has an associated Waiter.

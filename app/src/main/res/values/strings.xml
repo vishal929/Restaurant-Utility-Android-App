@@ -31,6 +31,11 @@
     <string name="namePriceInputTitle">Please Input First the Name, Then the Price.</string>
     <string name="sampleDecimalText">0.00</string>
     <string name="enterDescriptionText">Enter Description Here</string>
+    <string name="variationsText">Variations</string>
+    <string name="additionsText">Additions</string>
+    <string name="uploadText">Upload</string>
+    <string name="editText">Edit</string>
+    <string name="justPriceTitle">Please Enter a New Price for the Base Item.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
