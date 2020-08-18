@@ -14,6 +14,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import RestaurantClasses.ServiceTools.Menu;
+import RestaurantClasses.ServiceTools.MenuItem;
 
 public class MenuItemScreen extends AppCompatActivity implements NamePriceInputPopup.onConfirm,OnlyPriceInput.JustPrice{
     //enums for editing, and adding operations
@@ -114,8 +115,16 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
     public void goBack(View v){
         //need to send updated menu back to menuScreen
         //then from the menuScreen, if they hit back , it should save the menu and communicate the new menu to all users connected to the console
+        saveDescription();
         Intent goBack = new Intent(this,MenuScreen.class);
+        goBack.putExtra("menu",menu);
         startActivity(goBack);
+    }
+
+    public void saveDescription(){
+        //basically we just set the description to the item description
+        MenuItem toConsider = menu.getMenu().get(catPosition).getItems().get(itemPosition);
+        toConsider.setDescription(description.getText().toString());
     }
 
     //ToDo: implement this method to make the menu a little more fancy
@@ -142,6 +151,9 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
             itemPosition++;
 
         }
+        //saving description, if edited by user
+        saveDescription();
+
         //doing setup again for titleView, lists and adapters
         setUpScreen();
     }
@@ -160,6 +172,10 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
            //then I can just move back one
             itemPosition--;
         }
+
+        //saving description, if edited by user
+        saveDescription();
+
         setUpScreen();
     }
 

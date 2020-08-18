@@ -39,7 +39,7 @@ public class Kitchen{
      * @param name The name of our kitchen/bar.
      */
     public Kitchen(String name){
-       this.name=name;
+       this.name=name.toLowerCase().trim();
        orders=new ArrayList<Order>();
        fulfilled=new ArrayList<Order>();
        inquiries = new ArrayList<String>();

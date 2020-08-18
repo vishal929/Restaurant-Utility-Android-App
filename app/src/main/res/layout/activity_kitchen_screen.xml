@@ -10,80 +10,54 @@
         android:id="@+id/kitchenTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="17dp"
         android:text="@string/kitchenNameText"
-        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintEnd_toStartOf="@+id/pastOrdersButton"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/editOrderButton"
-        app:layout_constraintEnd_toStartOf="@+id/scrollView3"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orderList"
+        android:layout_width="96dp"
+        android:layout_height="484dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="33dp"
+        app:layout_constraintBottom_toBottomOf="@+id/orderItemList"
+        app:layout_constraintEnd_toStartOf="@+id/orderItemList"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ordersText">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/orderList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="@+id/orderItemList" />
 
     <TextView
         android:id="@+id/ordersText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="118dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="11dp"
         android:text="@string/orderListText"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/orderList"
+        app:layout_constraintStart_toStartOf="@+id/orderList" />
 
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="81dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orderItemList"
+        android:layout_width="255dp"
+        android:layout_height="483dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="78dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/signalPickupButton"
-        app:layout_constraintTop_toBottomOf="@+id/kitchenName">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/orderItemList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/orderList"
+        app:layout_constraintTop_toBottomOf="@+id/pastOrdersButton" />
 
     <TextView
         android:id="@+id/orderItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="9dp"
         android:text="@string/orderItemListText"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
-        app:layout_constraintEnd_toStartOf="@+id/viewInquiries"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/signalPickupButton" />
+        app:layout_constraintBottom_toTopOf="@+id/orderItemList"
+        app:layout_constraintEnd_toEndOf="@+id/orderItemList"
+        app:layout_constraintStart_toStartOf="@+id/orderItemList" />
 
     <Button
         android:id="@+id/editOrderButton"
@@ -99,21 +73,21 @@
         android:id="@+id/signalPickupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/pickupOrderText"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editOrderButton" />
+        app:layout_constraintStart_toEndOf="@+id/orderList" />
 
     <Button
         android:id="@+id/viewInquiries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="17dp"
         android:text="@string/inquiriesText"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView3" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/backButton"
@@ -131,21 +105,19 @@
         android:id="@+id/kitchenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="23dp"
         android:layout_marginEnd="61dp"
-        android:layout_marginBottom="78dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toStartOf="@+id/pastOrdersButton"
         app:layout_constraintStart_toEndOf="@+id/backButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/kitchenTitle" />
 
     <Button
         android:id="@+id/pastOrdersButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="8dp"
         android:text="@string/fulfilledOrdersText"
         app:layout_constraintBottom_toBottomOf="@+id/kitchenName"

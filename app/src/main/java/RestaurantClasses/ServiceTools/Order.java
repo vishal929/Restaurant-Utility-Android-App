@@ -4,6 +4,7 @@ package RestaurantClasses.ServiceTools;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 import RestaurantClasses.Service.Waiter;
 
@@ -25,7 +26,7 @@ public class Order implements Serializable {
     /**
      * Each order has items to be delivered to the consumers.
      */
-    private ArrayList<MenuItem> items;
+    private List<MenuItem> items;
 
     /**
      * Each order has a time when it is created.
@@ -47,7 +48,7 @@ public class Order implements Serializable {
      * @param waiter Waiter issuing the order.
      * @param table Table which requests the order.
      */
-    public Order(Waiter waiter, int table, ArrayList<MenuItem> order){
+    public Order(Waiter waiter, int table, List<MenuItem> order){
        this.waiter=waiter;
        this.table=table;
 
@@ -86,11 +87,11 @@ public class Order implements Serializable {
         this.table = table;
     }
 
-    public ArrayList<MenuItem> getItems() {
+    public List<MenuItem> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<MenuItem> items) {
+    public void setItems(List<MenuItem> items) {
         this.items = items;
     }
 

@@ -47,20 +47,26 @@ public class MenuScreen extends AppCompatActivity implements NamePriceInputPopup
          WifiP2pManager netMan = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
          WifiP2pManager.Channel channel = netMan.initialize(this,getMainLooper(),null);
          */
+        Bundle extras = getIntent().getExtras();
+        if (!extras.isEmpty()){
+            menu=(Menu) extras.getSerializable("menu");
+        } else {
+            menu = new Menu();
 
-        menu = new Menu();
+            //we will add some categories and items to test
+            menu.addCategory("Appetizers");
+            menu.getMenu().get(0).addItem("sandwich",20.0);
+            menu.getMenu().get(0).getItems().get(0).addVariant("grilled sandwich",30);
+            menu.getMenu().get(0).getItems().get(0).addAdditional("extra cheese",2);
+            menu.addCategory("Beverages");
+            menu.getMenu().get(1).addItem("Coke",1.30);
+            menu.addCategory("Dessert");
+            menu.getMenu().get(2).addItem("Cake",5.25);
+            menu.addCategory("Fresh from The Grill");
+            menu.getMenu().get(3).addItem("Grilled Paneer",5);
+        }
 
-        //we will add some categories and items to test
-        menu.addCategory("Appetizers");
-        menu.getMenu().get(0).addItem("sandwich",20.0);
-        menu.getMenu().get(0).getItems().get(0).addVariant("grilled sandwich",30);
-        menu.getMenu().get(0).getItems().get(0).addAdditional("extra cheese",2);
-        menu.addCategory("Beverages");
-        menu.getMenu().get(1).addItem("Coke",1.30);
-        menu.addCategory("Dessert");
-        menu.getMenu().get(2).addItem("Cake",5.25);
-        menu.addCategory("Fresh from The Grill");
-        menu.getMenu().get(3).addItem("Grilled Paneer",5);
+
 
         //setting up our recyclerviews for the categories and associated items
 
