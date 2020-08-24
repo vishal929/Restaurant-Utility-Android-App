@@ -66,6 +66,13 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
         additionsList = findViewById(R.id.additionsList);
         variationsList = findViewById(R.id.variationsList);
 
+
+
+        additionsList.setLayoutManager(new LinearLayoutManager(this));
+
+        variationsList.setLayoutManager(new LinearLayoutManager(this));
+
+
         //calling our helper method to setup the title and the lists
        setUpScreen();
 
@@ -93,13 +100,11 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
                 menu.getMenu().get(catPosition).getItems().get(itemPosition).getAdditions(),
                 menu.getMenu().get(catPosition).getItems().get(itemPosition).getAdditionPrices(),
                 voidClick));
-        additionsList.setLayoutManager(new LinearLayoutManager(this));
 
         variationsList.setAdapter(new PriceRecyclerAdapter(this,
                 menu.getMenu().get(catPosition).getItems().get(itemPosition).getVariants(),
                 menu.getMenu().get(catPosition).getItems().get(itemPosition).getVariantPrices(),
                 voidClick));
-        variationsList.setLayoutManager(new LinearLayoutManager(this));
 
         //we should also select the first item in each list, if any
         if (additionsList.getAdapter().getItemCount()!=0){

@@ -22,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //todo: implement with internet features
+    public boolean checkMenu(){
+        //if there is no menu found on the network, we return false
+        //otherwise return true
+
+        //reason is because if there is no menu, we should not go to kitchen or waiter screens and show an error
+        return true;
+    }
 
     //transitions to other activities
     //We want there to be a popup after the transition to let the user put in their name to be recognized in the system and for our

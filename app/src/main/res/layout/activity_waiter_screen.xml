@@ -32,6 +32,7 @@
         android:layout_height="376dp"
         android:layout_marginStart="31dp"
         android:layout_marginEnd="23dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/placedOrders"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginBottom="34dp"
         android:text="@string/waiterPickupReadyText"
         app:layout_constraintBottom_toTopOf="@+id/pickupList"
         app:layout_constraintStart_toStartOf="@+id/pickupList" />
@@ -72,11 +73,13 @@
         android:id="@+id/orderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="39dp"
+        android:layout_marginTop="20dp"
+        android:onClick="placeOrder"
         android:text="@string/placeOrderText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendInquiryButton" />
 
     <Button
         android:id="@+id/sendInquiryButton"
@@ -84,6 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="20dp"
+        android:onClick="viewInquiries"
         android:text="@string/inquiriesText"
         app:layout_constraintStart_toStartOf="@+id/placedOrders"
         app:layout_constraintTop_toBottomOf="@+id/placedOrders" />
@@ -93,6 +97,7 @@
         android:layout_width="169dp"
         android:layout_height="382dp"
         android:layout_marginEnd="44dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -101,19 +106,20 @@
         android:id="@+id/placedOrdersText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="29dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="31dp"
         android:text="@string/placedOrdersText"
         app:layout_constraintBottom_toTopOf="@+id/placedOrders"
         app:layout_constraintEnd_toEndOf="@+id/placedOrders" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/setServedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="19dp"
+        android:onClick="serveOrder"
         android:text="@string/serveOrderText"
-        app:layout_constraintStart_toStartOf="@+id/pickupList"
-        app:layout_constraintTop_toBottomOf="@+id/pickupList" />
+        app:layout_constraintBottom_toTopOf="@+id/orderButton"
+        app:layout_constraintStart_toStartOf="@+id/pickupList" />
 </androidx.constraintlayout.widget.ConstraintLayout>

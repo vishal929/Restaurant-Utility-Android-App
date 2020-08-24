@@ -11,83 +11,88 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginEnd="18dp"
         android:text="@string/kitchenNameText"
         app:layout_constraintEnd_toStartOf="@+id/pastOrdersButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/orderList"
-        android:layout_width="96dp"
-        android:layout_height="484dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="33dp"
-        app:layout_constraintBottom_toBottomOf="@+id/orderItemList"
-        app:layout_constraintEnd_toStartOf="@+id/orderItemList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/kitchenOrderCommentText"
+        app:layout_constraintEnd_toStartOf="@+id/menuItemOrderTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/orderItemList" />
+        app:layout_constraintTop_toTopOf="@+id/ordersText" />
 
     <TextView
         android:id="@+id/ordersText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginStart="22dp"
         android:text="@string/orderListText"
-        app:layout_constraintBottom_toTopOf="@+id/orderList"
-        app:layout_constraintStart_toStartOf="@+id/orderList" />
+        app:layout_constraintBottom_toBottomOf="@+id/orderItemText"
+        app:layout_constraintStart_toStartOf="@+id/orderList"
+        app:layout_constraintTop_toTopOf="@+id/orderItemText" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/orderItemList"
-        android:layout_width="255dp"
-        android:layout_height="483dp"
-        android:layout_marginTop="79dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="78dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/menuItemOrderTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/kitchenOrderCommentText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/orderList"
-        app:layout_constraintTop_toBottomOf="@+id/pastOrdersButton" />
+        app:layout_constraintTop_toTopOf="@+id/orderItemText" />
 
     <TextView
         android:id="@+id/orderItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
+        android:layout_marginTop="60dp"
         android:text="@string/orderItemListText"
-        app:layout_constraintBottom_toTopOf="@+id/orderItemList"
-        app:layout_constraintEnd_toEndOf="@+id/orderItemList"
-        app:layout_constraintStart_toStartOf="@+id/orderItemList" />
+        app:layout_constraintEnd_toEndOf="@+id/menuItemOrderTitle"
+        app:layout_constraintStart_toStartOf="@+id/menuItemOrderTitle"
+        app:layout_constraintTop_toBottomOf="@+id/pastOrdersButton" />
 
     <Button
         android:id="@+id/editOrderButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="17dp"
         android:layout_marginBottom="17dp"
         android:text="@string/editOrderText"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/signalPickupButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/signalPickupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginEnd="6dp"
         android:layout_marginBottom="16dp"
         android:text="@string/pickupOrderText"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/orderList" />
+        app:layout_constraintEnd_toStartOf="@+id/viewInquiries"
+        app:layout_constraintStart_toEndOf="@+id/editOrderButton" />
 
     <Button
         android:id="@+id/viewInquiries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="17dp"
         android:text="@string/inquiriesText"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/signalPickupButton" />
 
     <Button
         android:id="@+id/backButton"
@@ -95,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="67dp"
+        android:layout_marginEnd="68dp"
         android:text="@string/goBackText"
         app:layout_constraintEnd_toStartOf="@+id/kitchenName"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,12 +122,35 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/fulfilledOrdersText"
         app:layout_constraintBottom_toBottomOf="@+id/kitchenName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/kitchenName"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/kitchenOrderCommentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="237dp"
+        android:text="@string/orderComments"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menuItemOrderTitle"
+        app:layout_constraintStart_toStartOf="@+id/menuItemOrderTitle" />
+
+    <TextView
+        android:id="@+id/orderComments"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/editOrderButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kitchenOrderCommentText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

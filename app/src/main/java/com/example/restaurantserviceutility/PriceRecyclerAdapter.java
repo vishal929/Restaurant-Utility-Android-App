@@ -21,11 +21,11 @@ import org.w3c.dom.Text;
 //this is a special class to help display names and prices, but keep features of the basic adapter I made
 public class PriceRecyclerAdapter extends RecyclerView.Adapter<PriceRecyclerAdapter.PriceViewHolder>{
     //this adapter has an extra associated list: the price list
-    private List e;
-    private List prices;
-    private Context context;
-    private Clickable c;
-    private int selectedPosition=-1;
+    protected List e;
+    protected List prices;
+    protected Context context;
+    protected Clickable c;
+    protected int selectedPosition=-1;
 
     public PriceRecyclerAdapter(Context context, List e, List prices, Clickable clickable) {
         this.context=context;

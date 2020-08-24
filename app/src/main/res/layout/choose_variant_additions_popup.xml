@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseVariantAdditionsPopup">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/variantAdditionItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="41dp"
+            android:layout_marginTop="51dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/variantSelectText"
+            app:layout_constraintTop_toBottomOf="@+id/variantAdditionChoiceTitle" />
+
+        <TextView
+            android:id="@+id/variantAdditionChoiceTitle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="2dp"
+            android:gravity="center"
+            android:text="@string/additionVariantChooseTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/additionsSelectList"
+            android:layout_width="0dp"
+            android:layout_height="302dp"
+            android:layout_marginTop="117dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="117dp"
+            app:layout_constraintBottom_toTopOf="@+id/variantAdditionChooseConfirmButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/variantSelectList"
+            app:layout_constraintTop_toTopOf="@+id/variantAdditionItemName" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/variantSelectList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="62dp"
+            app:layout_constraintBottom_toBottomOf="@+id/additionsSelectList"
+            app:layout_constraintEnd_toStartOf="@+id/additionsSelectList"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/additionsSelectList" />
+
+        <TextView
+            android:id="@+id/variantSelectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginBottom="27dp"
+            android:text="@string/variantSelectText"
+            app:layout_constraintBottom_toTopOf="@+id/variantSelectList"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/additionsSelectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="27dp"
+            android:text="@string/additionSelectText"
+            app:layout_constraintBottom_toTopOf="@+id/additionsSelectList"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/variationAdditionSelectPriceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="53dp"
+            android:text="@string/priceText"
+            app:layout_constraintBaseline_toBaselineOf="@+id/variantAdditionChoosePriceOutput"
+            app:layout_constraintEnd_toStartOf="@+id/variantAdditionChoosePriceOutput" />
+
+        <TextView
+            android:id="@+id/variantAdditionChoosePriceOutput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:hint="0.00"
+            app:layout_constraintStart_toStartOf="@+id/additionsSelectList"
+            app:layout_constraintTop_toBottomOf="@+id/additionsSelectList" />
+
+        <Button
+            android:id="@+id/variantAdditionChooseCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginBottom="29dp"
+            android:onClick="cancel"
+            android:text="@android:string/cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/variantAdditionChooseConfirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="29dp"
+            android:layout_marginBottom="30dp"
+            android:onClick="confirm"
+            android:text="@string/confirmText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/additionsSelectList"
+            app:layout_constraintStart_toStartOf="@+id/variantAdditionChoosePriceOutput" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

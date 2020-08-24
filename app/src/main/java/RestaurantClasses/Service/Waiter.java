@@ -2,6 +2,7 @@ package RestaurantClasses.Service;
 
 import RestaurantClasses.ServiceTools.Order;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * This class represents the waiter who services the restaurant. They will be handling requests made by customers and updated on
  * requests straight from the kitchen/console.
  */
-public class Waiter {
+public class Waiter implements Serializable {
     /**
      * Name or Identification of the Waiter.
      */
@@ -51,7 +52,7 @@ public class Waiter {
      * @param k This represents the kitchen/bar that is to fulfill the order.
      * @return Returns true if order is successfully sent to the kitchen, false otherwise.
      */
-    public boolean requestOrder(Order o, Kitchen k) {
+    public boolean placeOrder(Order o, Kitchen k) {
         k.getOrders().add(o);
         return true;
     }

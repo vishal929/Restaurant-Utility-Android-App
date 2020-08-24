@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderScreen">
+
+    <TextView
+        android:id="@+id/orderScreenTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/orderScreenTitleText"
+        app:layout_constraintEnd_toStartOf="@+id/placeOrderScreenButton"
+        app:layout_constraintStart_toEndOf="@+id/orderScreenBackButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/orderScreenBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="19dp"
+        android:onClick="goBack"
+        android:text="@string/goBackText"
+        app:layout_constraintEnd_toStartOf="@+id/orderScreenTitle"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="73dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuItemOrderList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/orderCategoryText"
+        app:layout_constraintTop_toTopOf="@+id/placeOrderScreenButton" />
+
+    <TextView
+        android:id="@+id/orderCategoryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="11dp"
+        android:text="@string/categoriesText"
+        app:layout_constraintEnd_toStartOf="@+id/categorySpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/categorySpinner" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menuOrderList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/copyOrderItemButton"
+        app:layout_constraintEnd_toStartOf="@+id/menuItemOrderList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuItemOrderTitle" />
+
+    <TextView
+        android:id="@+id/menuItemOrderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="174dp"
+        android:text="@string/menuItemsText"
+        app:layout_constraintStart_toStartOf="@+id/menuOrderList"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menuItemOrderList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/menuOrderList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/menuOrderList"
+        app:layout_constraintTop_toTopOf="@+id/menuOrderList" />
+
+    <TextView
+        android:id="@+id/orderItemHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginBottom="21dp"
+        android:text="@string/orderItemListText"
+        app:layout_constraintBottom_toTopOf="@+id/menuItemOrderList"
+        app:layout_constraintStart_toStartOf="@+id/menuItemOrderList" />
+
+    <Button
+        android:id="@+id/addItemToOrderButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="1dp"
+        android:onClick="addItemToOrder"
+        android:text="@string/addItemOrderText"
+        app:layout_constraintBottom_toBottomOf="@+id/copyOrderItemButton"
+        app:layout_constraintEnd_toStartOf="@+id/menuItemOrderList"
+        app:layout_constraintStart_toStartOf="@+id/menuItemOrderTitle"
+        app:layout_constraintTop_toBottomOf="@+id/menuOrderList" />
+
+    <Button
+        android:id="@+id/copyOrderItemButton"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="addAdditionalItem"
+        android:text="@string/plusText"
+        app:layout_constraintBottom_toTopOf="@+id/tableInput"
+        app:layout_constraintEnd_toStartOf="@+id/removeOrderItemButton"
+        app:layout_constraintStart_toStartOf="@+id/menuItemOrderList" />
+
+    <Button
+        android:id="@+id/removeOrderItemButton"
+        android:layout_width="54dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginEnd="69dp"
+        android:onClick="removeItemFromOrder"
+        android:text="@string/minusText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/copyOrderItemButton"
+        app:layout_constraintEnd_toEndOf="@+id/placeOrderScreenButton"
+        app:layout_constraintStart_toStartOf="@+id/menuItemOrderList" />
+
+    <Button
+        android:id="@+id/placeOrderScreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="9dp"
+        android:onClick="finalizeOrder"
+        android:text="@string/placeOrderText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/orderScreenTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/optionalOrderDescriptionText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="31dp"
+        android:hint="Optional Description"
+        android:textColorHint="#1E1515"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableInput">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/descriptionInput"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:gravity="center" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tableInput"
+        android:layout_width="130dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="131dp"
+        android:hint="@string/tableNumber"
+        android:textColorHint="#1E1515"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/tableRealInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

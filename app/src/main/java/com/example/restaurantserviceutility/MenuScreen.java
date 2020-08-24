@@ -48,7 +48,7 @@ public class MenuScreen extends AppCompatActivity implements NamePriceInputPopup
          WifiP2pManager.Channel channel = netMan.initialize(this,getMainLooper(),null);
          */
         Bundle extras = getIntent().getExtras();
-        if (!extras.isEmpty()){
+        if (extras!=null){
             menu=(Menu) extras.getSerializable("menu");
         } else {
             menu = new Menu();
@@ -234,8 +234,19 @@ public class MenuScreen extends AppCompatActivity implements NamePriceInputPopup
     //logic to go to view item screen
     public void viewItem(View v){
         //will need to bundle the currently selected menuItem
+        //if no menuItem is selected, then we need to show an error
         MyRecyclerAdapter catadapt = (MyRecyclerAdapter) categoriesList.getAdapter();
         MyRecyclerAdapter itadapt = (MyRecyclerAdapter) itemList.getAdapter();
+        if (itadapt.getItemCount()==0){
+            //showing error
+            new AlertDialog.Builder(this)
+                    .setTitle("ERROR!")
+                    .setMessage("No Menu Item to View!")
+                    .setPositiveButton("OK",(dialog,id)->{})
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+            return;
+        }
         MenuItem selected = menu.getMenu()
                 .get(catadapt.getSelectedPosition())
                 .getItems()
