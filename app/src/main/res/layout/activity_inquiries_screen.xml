@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InquiriesScreen">
+
+    <EditText
+        android:id="@+id/inquiryResponseText"
+        android:layout_width="164dp"
+        android:layout_height="379dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="31dp"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:hint="No Response"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/previousInquiryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="66dp"
+        android:onClick="previousInquiry"
+        android:scaleX="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <ImageButton
+        android:id="@+id/nextInquiryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="66dp"
+        android:onClick="nextInquiry"
+        android:scaleX="-1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+    <TextView
+        android:id="@+id/inquiriesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/inquiriesText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="15dp"
+        android:onClick="goBack"
+        android:text="@string/goBackText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inquiryRealText"
+        android:layout_width="153dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:hint="No Inquiries"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="@+id/inquiryResponseText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/inquiryResponseText" />
+
+    <Button
+        android:id="@+id/respondOrCreateInquiryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="151dp"
+        android:layout_marginBottom="60dp"
+        android:onClick="respondOrSendInquiry"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="46dp"
+        android:onClick="clear"
+        android:text="@string/clearText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inquiriesText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/inquiryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="17dp"
+        android:text="@string/inquiryText"
+        app:layout_constraintBottom_toTopOf="@+id/inquiryRealText"
+        app:layout_constraintStart_toStartOf="@+id/inquiryRealText" />
+
+    <TextView
+        android:id="@+id/responseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:text="@string/responseText"
+        app:layout_constraintBottom_toTopOf="@+id/inquiryResponseText"
+        app:layout_constraintEnd_toEndOf="@+id/inquiryResponseText"
+        app:layout_constraintStart_toStartOf="@+id/inquiryResponseText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

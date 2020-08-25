@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyTextInputDialog">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textInputTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="49dp"
+            android:layout_marginBottom="85dp"
+            android:gravity="center"
+            android:text="@string/hello_blank_fragment"
+            app:layout_constraintBottom_toTopOf="@+id/textInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/textInput"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginEnd="75dp"
+            android:layout_marginBottom="121dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Enter Text"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/textInputBackButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputTitle" />
+
+        <Button
+            android:id="@+id/textInputBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginBottom="107dp"
+            android:onClick="cancel"
+            android:text="@string/goBackText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textInputConfirmButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInput" />
+
+        <Button
+            android:id="@+id/textInputConfirmButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="confirm"
+            android:text="@string/confirmText"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputBackButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textInputBackButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

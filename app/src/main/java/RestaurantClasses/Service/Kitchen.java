@@ -1,4 +1,5 @@
 package RestaurantClasses.Service;
+import RestaurantClasses.ServiceTools.Inquiry;
 import RestaurantClasses.ServiceTools.Order;
 import RestaurantClasses.ServiceTools.Menu;
 
@@ -26,7 +27,7 @@ public class Kitchen{
     /**
      * Inquiries that have been sent to the kitchen/bar.
      */
-    private ArrayList<String> inquiries;
+    private ArrayList<Inquiry> inquiries;
 
     /**
      * The Kitchen/Bar has a copy of the menu.
@@ -42,8 +43,13 @@ public class Kitchen{
        this.name=name.toLowerCase().trim();
        orders=new ArrayList<Order>();
        fulfilled=new ArrayList<Order>();
-       inquiries = new ArrayList<String>();
+       inquiries = new ArrayList<Inquiry>();
     }
+
+    public void getInquiry(Inquiry toGet){
+       inquiries.add(toGet);
+    }
+
 
 
     /**
@@ -104,11 +110,11 @@ public class Kitchen{
         this.fulfilled = fulfilled;
     }
 
-    public ArrayList<String> getInquiries() {
+    public ArrayList<Inquiry> getInquiries() {
         return inquiries;
     }
 
-    public void setInquiries(ArrayList<String> inquiries) {
+    public void setInquiries(ArrayList<Inquiry> inquiries) {
         this.inquiries = inquiries;
     }
 

@@ -1,5 +1,6 @@
 package RestaurantClasses.Service;
 
+import RestaurantClasses.ServiceTools.Inquiry;
 import RestaurantClasses.ServiceTools.Order;
 
 import java.io.Serializable;
@@ -32,6 +33,11 @@ public class Waiter implements Serializable {
      */
     private List<Order> placedOrders;
 
+    /**
+     * Waiters can make inquiries to the kitchen.
+     */
+    private List<Inquiry> inquiries;
+
 
     /**
      * Constructor for waiter.
@@ -43,6 +49,12 @@ public class Waiter implements Serializable {
         requestedOrders = new ArrayList<Order>();
         servedOrders = new ArrayList<Order>();
         placedOrders = new ArrayList<Order>();
+        inquiries= new ArrayList<Inquiry>();
+    }
+
+    public void sendInquiry(String s){
+       Inquiry toSend = new Inquiry(s);
+       inquiries.add(toSend);
     }
 
     /**
@@ -77,19 +89,7 @@ public class Waiter implements Serializable {
         return true;
     }
 
-    /**
-     * Method for a waiter to send a quick question to the kitchen/bar.
-     *
-     * @param k This is the kitchen/bar to send the question to.
-     * @param s This is the question to ask.
-     * @return Returns true if the message was successfully sent. False otherwise.
-     */
-    public boolean askInquiry(Kitchen k, String s) {
-        k.getInquiries().add(s);
 
-        //for compilation
-        return true;
-    }
 
 
     /**
@@ -140,5 +140,13 @@ public class Waiter implements Serializable {
 
     public void setPlacedOrders(List<Order> placedOrders) {
         this.placedOrders = placedOrders;
+    }
+
+    public List<Inquiry> getInquiries() {
+        return inquiries;
+    }
+
+    public void setInquiries(List<Inquiry> inquiries) {
+        this.inquiries = inquiries;
     }
 }
