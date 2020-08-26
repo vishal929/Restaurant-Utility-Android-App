@@ -48,6 +48,10 @@
     <string name="clearText">Clear</string>
     <string name="inquiryText">Inquiry:</string>
     <string name="responseText">Response:</string>
+    <string name="ordersText">Orders:</string>
+    <string name="itemsText">Items:</string>
+    <string name="placeComplaintText">Place Complaint</string>
+    <string name="viewComplaintText">View Complaint</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

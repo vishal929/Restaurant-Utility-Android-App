@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/orderList"
+        android:id="@+id/servedFulfilledOrderList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="14dp"
@@ -124,6 +124,7 @@
         android:layout_marginTop="14dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="5dp"
+        android:onClick="viewFulfilled"
         android:text="@string/fulfilledOrdersText"
         app:layout_constraintBottom_toBottomOf="@+id/kitchenName"
         app:layout_constraintEnd_toEndOf="parent"

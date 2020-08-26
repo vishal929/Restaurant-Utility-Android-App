@@ -115,9 +115,13 @@ public class WaiterScreen extends AppCompatActivity {
     }
 
 
-    //todo: implement inquiries feature
     public void viewInquiries(View v){
         //goes to inquiries screen
+        Intent inquiriesScreen = new Intent(this,InquiriesScreen.class);
+        Bundle args = new Bundle();
+        args.putBoolean("fromKitchen",false);
+        inquiriesScreen.putExtras(args);
+        startActivity(inquiriesScreen);
     }
 
     public void serveOrder(View v){
@@ -130,6 +134,8 @@ public class WaiterScreen extends AppCompatActivity {
         waiter.getServedOrders().add(served);
 
     }
+
+
 
 
 

@@ -54,6 +54,11 @@ public class Order implements Serializable {
     private String prepComments;
 
     /**
+     * Every order can be complained about.
+     */
+    private String complaint;
+
+    /**
      * Constructing our order. The time is initialized when the order is created.
      * @param waiter Waiter issuing the order.
      * @param table Table which requests the order.
@@ -71,24 +76,32 @@ public class Order implements Serializable {
 
         //initializing our construction time
        issued= LocalDateTime.now();
+
+       //complaint is null unless set by the waiter
+       complaint=null;
     }
 
 
 
     /**
-     * Method to return a complaint from this order. The order and complaint both exist separately because the complaint can be resolved and the order can still be filled.
+     * Method to set a complaint for this order.
      * @param description This is the nature of the complaint.
-     * @return Returns the created complaint.
      */
-    public Complaint makeComplaint(String description){
-       return new Complaint(this,description);
+    public void makeComplaint(String description){
+       this.complaint=description;
     }
+
+
 
 
 
     // getters and setters
     public Waiter getWaiter() {
         return waiter;
+    }
+
+    public String getComplaint(){
+        return complaint;
     }
 
     public void setWaiter(Waiter waiter) {

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ServedFulfilledOrdersScreen">
+
+    <TextView
+        android:id="@+id/servedFulfilledOrdersTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="13dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/servedFulfilledClearButton"
+        app:layout_constraintStart_toEndOf="@+id/servedFulfilledBackButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/servedFulfilledOrderList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/servedFulfilledPreparationText"
+        app:layout_constraintEnd_toStartOf="@+id/servedFulfilledItemList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/servedFulfilledOrdersText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/servedFulfilledItemList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="37dp"
+        app:layout_constraintBottom_toBottomOf="@+id/servedFulfilledPreparationText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/servedFulfilledOrderList"
+        app:layout_constraintTop_toTopOf="@+id/servedFulfilledItemsText" />
+
+    <TextView
+        android:id="@+id/servedFulfilledOrdersText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/ordersText"
+        app:layout_constraintStart_toStartOf="@+id/servedFulfilledBackButton"
+        app:layout_constraintTop_toBottomOf="@+id/servedFulfilledBackButton" />
+
+    <TextView
+        android:id="@+id/servedFulfilledItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="88dp"
+        android:text="@string/itemsText"
+        app:layout_constraintEnd_toEndOf="@+id/servedFulfilledItemList"
+        app:layout_constraintStart_toStartOf="@+id/servedFulfilledOrdersTitle"
+        app:layout_constraintTop_toBottomOf="@+id/servedFulfilledClearButton" />
+
+    <TextView
+        android:id="@+id/servedFulfilledPreparationTextReal"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="60dp"
+        android:hint="No Comments Given..."
+        app:layout_constraintBottom_toBottomOf="@+id/placeComplaintButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/servedFulfilledItemList" />
+
+    <TextView
+        android:id="@+id/servedFulfilledPreparationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginBottom="221dp"
+        android:text="@string/orderComments"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/servedFulfilledOrderList" />
+
+    <Button
+        android:id="@+id/servedFulfilledBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="15dp"
+        android:onClick="goBack"
+        android:text="@string/goBackText"
+        app:layout_constraintEnd_toStartOf="@+id/servedFulfilledOrdersTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/servedFulfilledClearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:onClick="clear"
+        android:text="@string/clearText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/servedFulfilledOrdersTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/placeComplaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginEnd="95dp"
+        android:text="@string/placeComplaintText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/viewComplaintButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/servedFulfilledOrdersText" />
+
+    <Button
+        android:id="@+id/viewComplaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/viewComplaintText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/placeComplaintButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

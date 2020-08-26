@@ -94,7 +94,12 @@ public class KitchenScreen extends AppCompatActivity {
 
     //goes to interface to view any inquiries made by the waiter on behalf of the customer
     public void viewInquiries(View v){
-        //todo: make view inquiries popup/screen
+        //goes to inquiries screen
+        Intent inquiriesScreen = new Intent(this,InquiriesScreen.class);
+        Bundle args = new Bundle();
+        args.putBoolean("fromKitchen",true);
+        inquiriesScreen.putExtras(args);
+        startActivity(inquiriesScreen);
     }
 
     //ability to edit order
