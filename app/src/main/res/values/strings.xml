@@ -52,6 +52,11 @@
     <string name="itemsText">Items:</string>
     <string name="placeComplaintText">Place Complaint</string>
     <string name="viewComplaintText">View Complaint</string>
+    <string name="exportDataText">Export Data</string>
+    <string name="clearAllText">Clear All</string>
+    <string name="orderTotalText">Order Total:</string>
+    <string name="viewTimeText">View Time</string>
+    <string name="removeItemText">Remove Item</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

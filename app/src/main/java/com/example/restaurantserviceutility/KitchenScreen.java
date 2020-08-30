@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.time.LocalDateTime;
+
 import RestaurantClasses.Service.Kitchen;
 import RestaurantClasses.Service.Waiter;
 import RestaurantClasses.ServiceTools.Menu;
@@ -89,7 +91,10 @@ public class KitchenScreen extends AppCompatActivity {
 
     //goes to screen to view fulfilled orders (orders that have been made by the kitchen (ready to pickup) )
     public void viewFulfilled(View v){
-        //todo:make fulfilled screen
+        Intent toFulfilled = new Intent(this,ServedFulfilledOrdersScreen.class);
+        toFulfilled.putExtra("fromWaiter",false);
+        toFulfilled.putExtra("kitchen",kitchen);
+        startActivity(toFulfilled);
     }
 
     //goes to interface to view any inquiries made by the waiter on behalf of the customer
@@ -114,6 +119,8 @@ public class KitchenScreen extends AppCompatActivity {
        //removing order from kitchen list
         kitchen.getOrders().remove(toSignal);
         kitchen.getFulfilled().add(toSignal);
+        //setting fulfilled time
+        toSignal.setFulfilled(LocalDateTime.now());
 
         //todo: notify waiter to pickup with a popup
         toSend.getRequestedOrders().add(toSignal);

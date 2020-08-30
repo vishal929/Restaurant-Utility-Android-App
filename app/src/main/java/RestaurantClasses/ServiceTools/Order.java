@@ -59,6 +59,11 @@ public class Order implements Serializable {
     private String complaint;
 
     /**
+     * The entire order has a total price.
+     */
+    private double totalPrice;
+
+    /**
      * Constructing our order. The time is initialized when the order is created.
      * @param waiter Waiter issuing the order.
      * @param table Table which requests the order.
@@ -76,9 +81,16 @@ public class Order implements Serializable {
 
         //initializing our construction time
        issued= LocalDateTime.now();
+       fulfilled = null;
+       served=null;
 
        //complaint is null unless set by the waiter
        complaint=null;
+
+       double sum = 0;
+       for (int i=0;i<order.size();i++){
+           sum+= ((order.get(i).getTotalPrice())*amount.get(i));
+       }
     }
 
 
@@ -90,6 +102,28 @@ public class Order implements Serializable {
     public void makeComplaint(String description){
        this.complaint=description;
     }
+
+    public String toString(){
+        //basically our info is about the order on the current day
+        //the other info about the day it was issued, etc is only on export data option (for convenience)
+        //our String will be
+        //table : ## -- waiter: ##
+
+        String toReturn ="table : "+this.table + " -- waiter: "+ this.waiter.getName();
+
+        if (fulfilled==null){
+            //then not fulfilled or served
+            return toReturn+"-- NOT FULFILLED";
+        } else if (served ==null){
+            //then not served but fulfilled
+            return toReturn+"-- FULFILLED";
+        } else {
+            //then served and fulfilled
+            return toReturn+"-- SERVED";
+        }
+    }
+
+
 
 
 
@@ -162,5 +196,17 @@ public class Order implements Serializable {
 
     public void setPrepComments(String prepComments) {
         this.prepComments = prepComments;
+    }
+
+    public void setComplaint(String complaint) {
+        this.complaint = complaint;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

@@ -145,10 +145,20 @@ public class InquiriesScreen extends AppCompatActivity implements MyTextInputDia
     //until they are cleared there
     public void clear(View v){
        //todo implement instance networking for clear
-        inquiries.clear();
-        inquiryText.setText(null);
-        responseText.setText(null);
-        inquiryPosition=0;
+
+        //we should have a popup like "are you sure you want to clear inquiries?"
+        new AlertDialog.Builder(this)
+                .setTitle("Warning!")
+                .setMessage("Are You Sure You Want to Clear Inquiries?")
+                .setPositiveButton("yes",(dialog,id)->{
+                    inquiries.clear();
+                    inquiryText.setText(null);
+                    responseText.setText(null);
+                    inquiryPosition=0;
+                })
+                .setNegativeButton("no",(dialog,id)->{})
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
     @Override

@@ -6,4 +6,193 @@
     android:layout_height="match_parent"
     tools:context=".ConsoleScreen">
 
+    <TextView
+        android:id="@+id/consoleTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/consoleClearAllButton"
+        app:layout_constraintStart_toEndOf="@+id/consoleGoBack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/menuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/menuTitleText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consoleViewTimeButton" />
+
+    <Button
+        android:id="@+id/exportData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/exportDataText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/consoleViewTimeButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/consoleGoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:text="@string/goBackText"
+        app:layout_constraintEnd_toStartOf="@+id/consoleTitleText"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/consoleClearAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="22dp"
+        android:text="@string/clearAllText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consoleTitleText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/consoleOrderList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="33dp"
+        app:layout_constraintBottom_toBottomOf="@+id/consoleOrderTotal"
+        app:layout_constraintEnd_toStartOf="@+id/consoleItemsList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/consoleOrderText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/consoleItemsList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintBottom_toBottomOf="@+id/consoleOrderTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consoleOrderList"
+        app:layout_constraintTop_toTopOf="@+id/consoleOrderItemText" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="18dp"
+        android:hint="Preparation Comments"
+        app:layout_constraintBottom_toTopOf="@+id/consoleRemoveItemButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consoleOrderTotalText" />
+
+    <Button
+        android:id="@+id/consoleCancelOrderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="16dp"
+        android:text="@android:string/cancel"
+        app:layout_constraintBaseline_toBaselineOf="@+id/consoleViewComplaintButton"
+        app:layout_constraintEnd_toStartOf="@+id/consolePlaceComplaintButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/consoleRemoveItemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/removeItemText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/consolePlaceComplaintButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consolePlaceComplaintButton" />
+
+    <Button
+        android:id="@+id/consoleViewComplaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/viewComplaintText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/consolePlaceComplaintButton"
+        app:layout_constraintStart_toStartOf="@+id/consolePlaceComplaintButton" />
+
+    <Button
+        android:id="@+id/consolePlaceComplaintButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="48dp"
+        android:text="@string/placeComplaintText"
+        app:layout_constraintBottom_toTopOf="@+id/exportData"
+        app:layout_constraintEnd_toStartOf="@+id/consoleRemoveItemButton"
+        app:layout_constraintStart_toEndOf="@+id/consoleCancelOrderButton" />
+
+    <TextView
+        android:id="@+id/consoleOrderTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="27dp"
+        android:text="@string/orderTotalText"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/consoleOrderTotalText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/consoleOrderTotalText"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="312dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consoleOrderTotal" />
+
+    <TextView
+        android:id="@+id/consoleOrderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="18dp"
+        android:text="@string/ordersText"
+        app:layout_constraintEnd_toEndOf="@+id/consoleGoBack"
+        app:layout_constraintTop_toBottomOf="@+id/consoleGoBack" />
+
+    <TextView
+        android:id="@+id/consoleOrderItemText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="17dp"
+        android:text="@string/orderItemListText"
+        app:layout_constraintStart_toStartOf="@+id/consoleItemsList"
+        app:layout_constraintTop_toBottomOf="@+id/consoleClearAllButton" />
+
+    <Button
+        android:id="@+id/consoleViewTimeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/viewTimeText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menuButton"
+        app:layout_constraintStart_toEndOf="@+id/exportData" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

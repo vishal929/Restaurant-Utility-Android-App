@@ -7,11 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import RestaurantClasses.ServiceTools.Menu;
 import RestaurantClasses.ServiceTools.MenuItem;
@@ -32,6 +37,7 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
     private TextView title;
     private TextView description;
     private TextView itemName;
+    private ImageView image;
 
     private Operation operation;
 
@@ -60,6 +66,10 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
         title = findViewById(R.id.categoryItemText);
         itemName = findViewById(R.id.itemNameTitle);
 
+        image = findViewById(R.id.imageView);
+
+
+
 
         //setting up our adapters for the additions and variations list
         //we are using a special adapter for these, which shows price on the right and the name on the left
@@ -87,6 +97,14 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
         } else {
             description.setText(null);
         }
+
+        //setting image, if any
+        if (menu.getMenu().get(catPosition).getItems().get(itemPosition).getPhoto()!=null){
+            image.setImageURI(Uri.parse(
+                    menu.getMenu().get(catPosition).getItems().get(itemPosition).getPhoto().toString()
+            ));
+        }
+
         //need to initialize our textview for the item name and the category
         String toSet = menu.getMenu().get(catPosition).getName()+" : ";
         String name = menu.getMenu().get(catPosition).getItems().get(itemPosition).getName();
@@ -337,5 +355,65 @@ public class MenuItemScreen extends AppCompatActivity implements NamePriceInputP
         //so we just change the base item price here
         menu.getMenu().get(catPosition).getItems().get(itemPosition).setBasePrice(price);
         variationsList.getAdapter().notifyDataSetChanged();
+    }
+
+    //method for handling picture upload for the menu
+    public void upload(View v){
+        //we basically just ask, do you want to upload picture from the phone or take one right now?
+        //if there is already a picture, we need to ask if they want to replace it
+        AtomicBoolean pickImage = new AtomicBoolean(false);
+        if (menu.getMenu().get(catPosition).getItems().get(itemPosition).getPhoto()!=null){
+            new AlertDialog.Builder(this)
+                    .setTitle("Warning!")
+                    .setMessage("Would you Like to Replace Current Image?")
+                    .setPositiveButton("OK",(dialog,id)->{
+                        pickImage.set(true);
+                    })
+                    .setNegativeButton("Cancel",(dialog,id)->{})
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+
+        if (pickImage.get()){
+            new AlertDialog.Builder(this)
+                    .setTitle("Photo Chooser")
+                    .setMessage("Set Picture From Gallery or Camera?")
+                    .setPositiveButton("Camera",(dialog,id)->{
+                        //then we need to dismiss and then go to camera
+                        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivityForResult(camera,0);
+                    })
+                    .setNegativeButton("Gallery",(dialog,id)->{
+                        //then we need to dismiss and go to gallery
+                        Intent gallery = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        startActivityForResult(gallery,1);
+                    })
+                    .show();
+        }
+
+
+    }
+
+    //setting what to do during image stuff
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+
+        switch(requestCode){
+            case 0:
+            case 1:
+                //then we need to save the gallery pic as the menu item pic
+                //then we just need to save the camera pic as the menu item pic
+                if(resultCode == RESULT_OK){
+                    Uri selectedImage = imageReturnedIntent.getData();
+                    image.setImageURI(selectedImage);
+                    try {
+                        menu.getMenu().get(catPosition).getItems().get(itemPosition).setPhoto(new URI(selectedImage.toString()));
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    }
+                }
+                break;
+        }
     }
 }

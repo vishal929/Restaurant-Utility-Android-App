@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.time.LocalDateTime;
+
 import RestaurantClasses.Service.Kitchen;
 import RestaurantClasses.Service.Waiter;
 import RestaurantClasses.ServiceTools.Menu;
@@ -103,6 +105,10 @@ public class WaiterScreen extends AppCompatActivity {
     public void viewServedOrders(View v){
         //goes to a new screen to view a double list with order and the associated items
         //there will be an option to issue a complaint from here
+        Intent toServed = new Intent(this,ServedFulfilledOrdersScreen.class);
+        toServed.putExtra("fromWaiter",true);
+        toServed.putExtra("waiter",waiter);
+        startActivity(toServed);
     }
 
     public void placeOrder(View v){
@@ -128,6 +134,8 @@ public class WaiterScreen extends AppCompatActivity {
         //basically sets the order as served and removes it from the toServe list
         MyRecyclerAdapter serveAdapt = (MyRecyclerAdapter) toServeList.getAdapter();
         Order served = waiter.getRequestedOrders().get(serveAdapt.getSelectedPosition());
+        //set served time
+        served.setServed(LocalDateTime.now());
         //remove item
         serveAdapt.remove();
         //add item to served list

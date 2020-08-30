@@ -3,6 +3,7 @@ package RestaurantClasses.ServiceTools;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,6 +44,11 @@ public class MenuItem implements Serializable {
      */
     private String description;
 
+    /**
+     * Every MenuItem may have an image.
+     */
+    private URI photo;
+
 
 
 
@@ -60,6 +66,7 @@ public class MenuItem implements Serializable {
         variants.add("Base");
         variantPrices.add(basePrice);
         description=null;
+        photo=null;
     }
 
 
@@ -231,5 +238,13 @@ public class MenuItem implements Serializable {
 
     public void setAdditionPrices(List<Double> additionPrices) {
         this.additionPrices = additionPrices;
+    }
+
+    public URI getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(URI photo) {
+        this.photo = photo;
     }
 }

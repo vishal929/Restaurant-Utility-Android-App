@@ -3,12 +3,13 @@ import RestaurantClasses.ServiceTools.Inquiry;
 import RestaurantClasses.ServiceTools.Order;
 import RestaurantClasses.ServiceTools.Menu;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 /**
  * Class to represent a kitchen or bar where the waiter makes orders or requests from.
  */
-public class Kitchen{
+public class Kitchen implements Serializable {
     /**
      * Name or identification of a kitchen or bar.
      */

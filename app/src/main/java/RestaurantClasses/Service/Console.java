@@ -29,20 +29,7 @@ public class Console{
      */
     private ArrayList<Order> orders;
 
-    /**
-     * Orders that have been fulfilled (ready to be picked up from kitchen/bar) in the operating area of this console.
-     */
-    private  ArrayList<Order> fulfilledOrders;
 
-    /**
-     * Orders that have been served by a waiter in the operating area of this console.
-     */
-    private ArrayList<Order> servedOrders;
-
-    /**
-     * Complaints given about orders.
-     */
-    private ArrayList<Complaint> complaints;
 
 
 
@@ -58,8 +45,7 @@ public class Console{
     public Console(String name){
         this.name=name;
         orders=new ArrayList<Order>();
-        fulfilledOrders=new ArrayList<Order>();
-        complaints = new ArrayList<Complaint>();
+
     }
 
 
@@ -90,21 +76,6 @@ public class Console{
         this.orders = orders;
     }
 
-    public ArrayList<Order> getFulfilledOrders() {
-        return fulfilledOrders;
-    }
-
-    public void setFulfilledOrders(ArrayList<Order> fulfilledOrders) {
-        this.fulfilledOrders = fulfilledOrders;
-    }
-
-    public ArrayList<Complaint> getComplaints() {
-        return complaints;
-    }
-
-    public void setComplaints(ArrayList<Complaint> complaints) {
-        this.complaints = complaints;
-    }
 
     public ArrayList<Console> getConsoles() {
         return consoles;
@@ -114,11 +85,5 @@ public class Console{
         this.consoles = consoles;
     }
 
-    public ArrayList<Order> getServedOrders() {
-        return servedOrders;
-    }
 
-    public void setServedOrders(ArrayList<Order> servedOrders) {
-        this.servedOrders = servedOrders;
-    }
 }

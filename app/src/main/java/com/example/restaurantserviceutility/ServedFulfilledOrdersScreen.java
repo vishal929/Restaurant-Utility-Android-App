@@ -46,7 +46,7 @@ public class ServedFulfilledOrdersScreen extends AppCompatActivity implements My
 
         //basically we have to see whether we came from the kitchen or from the waiter screen and adjust accordingly
         Bundle extras = getIntent().getExtras();
-        fromWaiter = extras.getBoolean("waiter");
+        fromWaiter = extras.getBoolean("fromWaiter");
 
         //the kitchen can only view complaints
         placeComplaintButton.setVisibility(GONE);
